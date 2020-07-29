@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import SideBar from './sideBar/SideBar'
 import * as serviceWorker from './serviceWorker';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <SideBar />
   </React.StrictMode>,
   document.getElementById('root')
 );
