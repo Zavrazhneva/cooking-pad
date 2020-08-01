@@ -10,6 +10,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import NavBar from '../navBar/NavBar';
 import Card from '../card/Card';
+import Form from "../form/Form";
 import {Reciepts} from '../mock/Mock'
 import S from './Content.module.css'
 
@@ -78,6 +79,7 @@ export default function PermanentDrawerLeft() {
                 <div className={S.cardWrapper}>{Reciepts.map((item, i) =>
                     <Card {...item} key={item.title+ i}/>
                 )}</div>
+            <Form/>
             </main>
         </div>
     );

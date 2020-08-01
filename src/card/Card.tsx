@@ -9,8 +9,11 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
+import { Fab } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Ingredients from "../ingredients/Ingredients";
+import Form from "../form/Form";
 import S from "./Card.module.css"
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -38,17 +41,36 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
+
 export default function RecipeReviewCard(props:any) {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
+    const [editing, setEditing] = React.useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+    const handleEditingClick = () => {
+        setEditing(!editing);
+    };
+
+    if (editing) {
+        return (
+            <div>
+                test Test
+            </div>
+        )
+    }
 
     return (
-        <Card className={classes.root}>
-            <Typography variant="h4" component="h4">{props.title}</Typography>
+        <Card className={classes.root} classes={{ root: S.card}} >
+            <div className={S.headerCard}>
+                <Typography variant="h4" component="h4">{props.title}</Typography>
+                <Fab color="secondary" aria-label="edit" >
+                    <EditIcon onClick={handleEditingClick}/>
+                </Fab>
+            </div>
+
             <CardMedia
                 className={classes.media}
                 image= {props.images}
